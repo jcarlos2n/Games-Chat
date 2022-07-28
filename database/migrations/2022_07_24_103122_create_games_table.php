@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(false);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('title');
+            $table->string('genre');
             $table->timestamps();
         });
     }

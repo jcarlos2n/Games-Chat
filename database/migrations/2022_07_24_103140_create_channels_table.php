@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('game_id')->nullable(false);
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->timestamps();
         });
     }
