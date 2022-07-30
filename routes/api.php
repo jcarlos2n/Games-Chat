@@ -60,6 +60,7 @@ Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
     
 });
 
+//Messages endpoints
 Route::group(["middleware" => "jwt.auth"], function() {
     Route::post('/messages/create', [MessageController::class, 'createMessage']);  
     Route::get('/messages/get', [MessageController::class, 'getMessages']);  
