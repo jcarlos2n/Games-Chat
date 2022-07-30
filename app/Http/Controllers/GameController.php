@@ -44,6 +44,7 @@ class GameController extends Controller
                 ],
                 200
             );
+
         } catch (\Exception $exception) {
             Log::error("Error creating game: " . $exception->getMessage());
 

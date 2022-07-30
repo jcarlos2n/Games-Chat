@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -42,3 +43,19 @@ Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
     Route::put('/games/update_game/{id}', [GameController::class, 'updateGame']);
     Route::delete('/games/delete_game/{id}', [GameController::class, 'deleteGame']);
 });
+
+//Channel Endpoints
+Route::group(["middleware" => "jwt.auth"], function() {
+    Route::post('/channels/create', [ChannelController::class, 'createChannel']);  
+    Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']);  
+    
+});
+Route::group(["middleware" => "jwt.auth", "isAdmin"], function() {
+    Route::delete('/channels/delete_channel/{id}', [ChannelController::class, 'deleteChannel']);
+    
+});
+Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
+    Route::delete('/channels/delete_channel/{id}', [ChannelController::class, 'deleteChannel']);
+    
+});
+

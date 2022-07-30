@@ -12,4 +12,12 @@ class Channel extends Model
     public function users(){
         return $this->belongsToMany(User::class);
     }
+    
+    public function games(){
+        return $this->belongsTo(Game::class);
+    }
+
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }
