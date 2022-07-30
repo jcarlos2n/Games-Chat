@@ -62,6 +62,8 @@ Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
 
 Route::group(["middleware" => "jwt.auth"], function() {
     Route::post('/messages/create', [MessageController::class, 'createMessage']);  
-    // Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']);  
+    Route::get('/messages/get', [MessageController::class, 'getMessages']);  
+    Route::put('/messages/edit/{id}', [MessageController::class, 'editMessage']);  
+    Route::delete('/messages/delete/{id}', [MessageController::class, 'deleteMessage']);  
     
 });
