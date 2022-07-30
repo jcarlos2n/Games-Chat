@@ -34,10 +34,12 @@ Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
 });
 
 //GameController Endpoints
-
+Route::group(["middleware" => "jwt.auth"], function() {
+    Route::get('/games/get_games', [GameController::class, 'getGames']);  
+});
 Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
     Route::post('/games/add_game', [GameController::class, 'addGame']);
-    // Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
+    Route::put('/games/update_game/{id}', [GameController::class, 'updateGame']);
     // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
 });

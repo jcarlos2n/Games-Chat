@@ -55,7 +55,75 @@ class GameController extends Controller
                     500
                 );
         }
-       
+    }
 
+    public function getGames(){
+        try {
+            Log::info("Getting all games");
+
+            $games = Game::query('games')
+            ->get()
+            ->toArray();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Game retrieve succesfully',
+                'data' => $games
+            ],200);
+
+        } catch (\Exception $exception) {
+
+            Log::error("Error getting games: " . $exception->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Error getting games' . $exception->getMessage(),
+
+            ], 500);
+        }
+    }
+
+    public function updateGame(Request $request, $id){
+        try {
+
+            $game =  Game::query()
+            ->where('id', '=', $id)
+            ->first();
+            
+        if (!$game) {
+            return [
+                'success' => true,
+                "message" => "These game doesn't exist"
+            ];
+        }
+
+        Log::info("Updating game");
+
+        $game = Game::find($id);
+        if (!$game) {
+            return response()->json([
+                "success" => true,
+                "message" => "Game doesnt exist"
+            ], 404);
+        }
+
+        $title = $request->input('title');
+        $genre = $request->input('genre');
+
+        $game->title = $title;
+        $game->genre = $genre;
+
+        $game->save();
+        return response()->json([
+            "success" => true,
+            "message" => "Game updated"
+        ], 200);
+        } catch (\Exception $exception) {
+            Log::error("Error updating game: " . $exception->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error updating game' . $exception->getMessage(),
+            ], 500);
+        }
     }
 }
