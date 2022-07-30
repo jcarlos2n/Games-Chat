@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -59,3 +60,8 @@ Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
     
 });
 
+Route::group(["middleware" => "jwt.auth"], function() {
+    Route::post('/messages/create', [MessageController::class, 'createMessage']);  
+    // Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']);  
+    
+});
