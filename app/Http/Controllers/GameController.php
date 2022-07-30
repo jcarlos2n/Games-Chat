@@ -89,7 +89,7 @@ class GameController extends Controller
             $game =  Game::query()
             ->where('id', '=', $id)
             ->first();
-            
+
         if (!$game) {
             return [
                 'success' => true,
@@ -118,12 +118,55 @@ class GameController extends Controller
             "success" => true,
             "message" => "Game updated"
         ], 200);
+
         } catch (\Exception $exception) {
+
             Log::error("Error updating game: " . $exception->getMessage());
             return response()->json([
                 'success' => false,
                 'message' => 'Error updating game' . $exception->getMessage(),
             ], 500);
+
+        }
+    }
+
+    public function deleteGame($id){
+        try {
+
+            $game =  Game::query()
+                ->where('id', '=', $id)
+                ->first();
+            if (!$game) {
+                return [
+                    'success' => true,
+                    "message" => "These game doesn exist"
+                ];
+            }
+
+            Log::info("Deleting game");
+
+            $game = Game::find($id);
+            if (!$game) {
+                return response()->json([
+                    "success" => true,
+                    "message" => "Game doesnt exist"
+                ], 404);
+            }
+
+            $game::destroy($id);
+            return response()->json([
+                "success" => true,
+                "message" => "Game deleted"
+            ], 200);
+
+        } catch (\Exception $exception) {
+
+            Log::error("Error deleting game: " . $exception->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error deleting game' . $exception->getMessage(),
+            ], 500);
+
         }
     }
 }

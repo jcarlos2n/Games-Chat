@@ -40,6 +40,5 @@ Route::group(["middleware" => "jwt.auth"], function() {
 Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
     Route::post('/games/add_game', [GameController::class, 'addGame']);
     Route::put('/games/update_game/{id}', [GameController::class, 'updateGame']);
-    // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
-    // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
+    Route::delete('/games/delete_game/{id}', [GameController::class, 'deleteGame']);
 });
