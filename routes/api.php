@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('/', function (){
+    return 'Bienvenido, has conectado con HEROKU';
+});
 //AuthController Endpoints
 
 Route::post('/register', [AuthController::class, 'register']);
