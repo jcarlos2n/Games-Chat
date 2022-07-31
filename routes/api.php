@@ -28,7 +28,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('jwt.auth'
 
 //Add Roles whit UserController Endpoints
 
-Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
+Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function() {
     Route::post('/user/super_admin/{id}', [UserController::class, 'addSuperAdminRole']);
     Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
     Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
@@ -39,7 +39,7 @@ Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
 Route::group(["middleware" => "jwt.auth"], function() {
     Route::get('/games/get_games', [GameController::class, 'getGames']);  
 });
-Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
+Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function() {
     Route::post('/games/add_game', [GameController::class, 'addGame']);
     Route::put('/games/update_game/{id}', [GameController::class, 'updateGame']);
     Route::delete('/games/delete_game/{id}', [GameController::class, 'deleteGame']);
@@ -51,11 +51,11 @@ Route::group(["middleware" => "jwt.auth"], function() {
     Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']);  
     
 });
-Route::group(["middleware" => "jwt.auth", "isAdmin"], function() {
+Route::group(["middleware" => ["jwt.auth", "isAdmin"]], function() {
     Route::delete('/channels/delete_channel/{id}', [ChannelController::class, 'deleteChannel']);
     
 });
-Route::group(["middleware" => "jwt.auth", "isSuperAdmin"], function() {
+Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function() {
     Route::delete('/channels/delete_channel/{id}', [ChannelController::class, 'deleteChannel']);
     
 });
