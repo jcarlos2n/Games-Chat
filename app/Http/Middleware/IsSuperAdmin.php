@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class IsSuperAdmin
 {
+    const ROLE_SUPER_ADMIN = 3;
     /**
      * Handle an incoming request.
      *
@@ -20,7 +21,7 @@ class IsSuperAdmin
         $userId = auth()->user()->id;
         $user = User::find($userId);
 
-        $isSuperAdmin = $user->roles()->contains(3);
+        $isSuperAdmin = $user->roles()->contains(self::ROLE_SUPER_ADMIN);
 
         if (!$isSuperAdmin) {
             return response()->json([
