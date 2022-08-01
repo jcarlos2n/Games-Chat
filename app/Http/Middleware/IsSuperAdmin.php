@@ -21,7 +21,7 @@ class IsSuperAdmin
         $userId = auth()->user()->id;
         $user = User::find($userId);
 
-        $isSuperAdmin = $user->roles()->contains(self::ROLE_SUPER_ADMIN);
+        $isSuperAdmin = $user->roles->contains(self::ROLE_SUPER_ADMIN);
 
         if (!$isSuperAdmin) {
             return response()->json([

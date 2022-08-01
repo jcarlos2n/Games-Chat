@@ -20,7 +20,7 @@ class IsAdmin
         $userId = auth()->user()->id;
         $user = User::find($userId);
 
-        $isAdmin = $user->roles()->contains(2);
+        $isAdmin = $user->roles->contains(2);
 
         if (!$isAdmin) {
             return response()->json([
