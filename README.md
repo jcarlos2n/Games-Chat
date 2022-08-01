@@ -1,64 +1,111 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+
+<h1 align="center">
+Games Chat
+</h1>
+
+___
+
+<h5 align="center">Back-End en Laravel realizado durante el Bootcamp FSD de GeeksHubs. Por José Carlos Núñez.</h5><br>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <a href="#about">About</a> ·
+    <a href="#usage">Usage</a> ·
+    <a href="#features">Features</a>
 </p>
 
-## About Laravel
+___
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## About
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+He desarrollado un Backen-End en Laravel, el cual consiste en simular una aplicación de chat para videojuegos, con varios endpoints en las distintas tablas que pertenecen a la BBDD, con varios CRUD.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Usage
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Está desplegada en Heroku, por lo cual, solo tienés que utilizar los Endpoints, que se encuentran en la carpeta Postman en formato JSON y utilizarlos en Postman.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p><strong>End-Points de Usuario</strong></p>
+En primer lugar podemos ver el Login.
+<p align="center">
+<img src="img/login.png" width= 500><br>
+<sub> Login</sub>
+</p>
+<br>
+Register, la información de esta imagen, es la que debemos usar si queremos tener permisos de Super Admin.
+<p align="center">
+<img src="img/register.png" width= 500><br>
+<sub> Register</sub>
+</p>
+<br>
+<p><strong>End-Points de Super Admin y Admin</strong></p>
+Añadir role de admin, para el cual debemos tener role de super Admin.
+<p align="center">
+<img src="img/addadmin.png" width= 500><br>
+<sub> Add admin role</sub>
+</p>
+Eliminar role de admin, para el cual debemos tener role de super Admin.
+<p align="center">
+<img src="img/deleteadmin.png" width= 500><br>
+<sub> Delete admin role</sub>
+</p>
+Añadir role de super admin, para el cual debemos tener role de super Admin.
+<p align="center">
+<img src="img/addsuperadmin.png" width= 500><br>
+<sub>Add super admin role</sub>
+</p>
+Eliminar role de super admin, para el cual debemos tener role de super Admin.
+<p align="center">
+<img src="img/deletesuperadmin.png" width= 500><br>
+<sub> Delete super admin role</sub>
+</p>
+<p><strong>End-Points de Juegos</strong></p>
+El primer endpoint, consiste en crear un juego.
+<p align="center">
+<img src="img/addgame.png" width= 500><br>
+<sub> Add game</sub>
+</p>
+Este endpoint, consiste en modificar un juego.
+<p align="center">
+<img src="img/updategame.png" width= 500><br>
+<sub> Update game</sub>
+</p>
+El tercer endpoint, nos muestra todos los juegos disponibles en la BBDD.
+<p align="center">
+<img src="img/getgames.png" width= 500><br>
+<sub> Get games</sub>
+</p>
+El cuarto endpoint, consiste en eliminar u un juego.
+<p align="center">
+<img src="img/deletegame.png" width= 500><br>
+<sub> Delete game</sub>
+</p>
+<p><strong>End-Points de Canales</strong></p>
+El primer endpoint, nos permite crear un canal.
+<p align="center">
+<img src="img/createchannel.png" width= 500><br>
+<sub> Create channel</sub>
+</p>
+El segundo endpoint, nos permite eliminar un canal.
+<p align="center">
+<img src="img/deletechannel.png" width= 500><br>
+<sub> Delete channel</sub>
+</p>
+El primer endpoint, nos permite unirnos a un canal.
+<p align="center">
+<img src="img/joinchannel.png" width= 500><br>
+<sub> Join to channel</sub>
+</p>
+<p><strong>End-Points de Mensajes</strong></p>
+El primer endpoint, nos permite crear un mensaje.
+<p align="center">
+<img src="img/createmessage.png" width= 500><br>
+<sub> Create message</sub>
+</p>
+El segundo endpoint, nos permite editar un mensaje.
+<p align="center">
+<img src="img/editmessage.png" width= 500><br>
+<sub> Edit message</sub>
+</p>
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
