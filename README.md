@@ -107,5 +107,19 @@ El segundo endpoint, nos permite editar un mensaje.
 <img src="img/editmessage.png" width= 500><br>
 <sub> Edit message</sub>
 </p>
+El siguiente endpoint, nos muestra los mensajes que hayamos enviado mensaje.
+<p align="center">
+<img src="img/getmessages.png" width= 500><br>
+<sub> Get message</sub>
+</p>
+El ultimo endpoint, nos permite eliminar un mensaje ya enviado.
+<p align="center">
+<img src="img/deletemessage.png" width= 500><br>
+<sub> Delete message</sub>
+</p>
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+___
+
+##Features
+
+<p align="center"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" >·<img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" >·<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" >·<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">·<img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"></p>
