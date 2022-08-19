@@ -104,6 +104,45 @@ class ChannelController extends Controller
         }
     }
 
+    public function outChannel($id){
+        try {
+            Log::info("Join to channel");
+
+            $user = auth()->user()->id;
+            $channel = Channel::find($id);
+            $channel->users()->detach($user);
+            if (!$channel) {
+
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => "Error out going to channel"
+                ],
+                500
+            );
+            }
+            return response()->json(
+                [
+                    'success' => true,
+                    'message' => "out of channel"
+                ],
+                500
+            );
+
+
+        } catch (\Exception $exception) {
+            Log::error("Error joinning to channel: " . $exception->getMessage());
+
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => "Error joinning to channel"
+                ],
+                500
+            );
+        }
+    }
+
     public function deleteChannel($id)
     {
         try {

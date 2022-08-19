@@ -50,7 +50,8 @@ Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function() {
 //Channel Endpoints
 Route::group(["middleware" => "jwt.auth"], function() {
     Route::post('/channels/create', [ChannelController::class, 'createChannel']);  
-    Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']);  
+    Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']); 
+    Route::post('/channels/out_of_channel/{id}', [ChannelController::class, "outChannel"]) ;
     
 });
 
