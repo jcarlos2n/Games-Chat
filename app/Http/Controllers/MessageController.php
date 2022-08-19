@@ -38,7 +38,7 @@ class MessageController extends Controller
             $channel = DB::table('channel_user')
                 ->where('user_id',"=", $userId)
                 ->where('channel_id',"=", $channelId)
-                ->first();
+                ->get();
             if (!$channel) {
                 return response()->json(
                     [
@@ -98,7 +98,7 @@ class MessageController extends Controller
                 );
             }
             $text = Message::query()
-                    ->where('user_id', '=', $userId)
+                    ->where('channel_id', '=', $channelId)
                     ->get()
                     ->toArray();
 
