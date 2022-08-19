@@ -53,10 +53,7 @@ Route::group(["middleware" => "jwt.auth"], function() {
     Route::post('/channels/join_to_channel/{id}', [ChannelController::class, 'joinToChannel']);  
     
 });
-Route::group(["middleware" => ["jwt.auth", "isAdmin"]], function() {
-    Route::delete('/channels/delete_channel/{id}', [ChannelController::class, 'deleteChannel']);
-    
-});
+
 Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function() {
     Route::delete('/channels/delete_channel/{id}', [ChannelController::class, 'deleteChannel']);
     
@@ -65,7 +62,7 @@ Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function() {
 //Messages endpoints
 Route::group(["middleware" => "jwt.auth"], function() {
     Route::post('/messages/create', [MessageController::class, 'createMessage']);  
-    Route::get('/messages/get', [MessageController::class, 'getMessages']);  
+    Route::get('/messages/get/{id}', [MessageController::class, 'getMessages']);  
     Route::put('/messages/edit/{id}', [MessageController::class, 'editMessage']);  
     Route::delete('/messages/delete/{id}', [MessageController::class, 'deleteMessage']);  
     
